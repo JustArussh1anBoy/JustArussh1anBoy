@@ -1,5 +1,5 @@
 - 👋 Hi, I’m a Richard White, and i live in Russia.
-- 👀 I’m interested in creating programms (or some malwares... maybe)
+- 👀 I’m interested in creating programs (or some malwares... maybe)
 - 🌱 I’m currently learning C#, and i made 2 programms that are not on GitHub for now (but looking forward to publishing)
 - 🎮 I like GAMING like you. My favorite game is Minecraft, but i like other games like Roblox, Geometry Dash, Just Shapes & Beats, Project Arrhythmia, etc too.
 - 📚 Started my code learning from Windows Batch scripting. Then I started learning C# with the help of the teacher, but then I started learning on my own... when I suddenly got known that there's an AI for helping with the code and its free-ish.

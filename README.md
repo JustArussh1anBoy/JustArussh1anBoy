@@ -5,3 +5,5 @@
 - 📚 Started my code learning from Windows Batch scripting. Then I started learning C# with the help of the teacher, but then I started learning on my own... when I suddenly got known that there's an AI for helping with the code and its free-ish.
 - 🖥️ I had a low-end computer with old AMD proccesor that can barely run Windows 10 (rip). I've got an upgrade with AMD proccesor TOO (not that old) because I needed to learn a lot.
 - 🍞 bread
+
+(Last updated: May 19th 2025)

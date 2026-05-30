@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>an error occured!!</title>
+    <!-- Automatically pulls your custom logo for the browser tab -->
+    <link rel="icon" type="image/png" href="/static-assets/archade_logo.png">
+    
+    <!-- Tailwind CSS for styling without needing a build step -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling on error pages */
+        }
+        
+        /* The soft blue glowing orb behind the text */
+        .glow-orb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 180, 219, 0.3) 0%, rgba(0, 180, 219, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* The massive, faded error number */
+        .bg-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24rem;
+            font-weight: 900;
+            color: rgba(0, 180, 219, 0.15);
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -0.05em;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-[#f4f5f7] h-screen w-full flex items-center justify-center relative">
+
+    <!-- Background Effects -->
+    <div class="glow-orb"></div>
+    <div id="bg-error-code" class="bg-number">404</div>
+
+    <!-- Foreground Text -->
+    <div class="content-layer text-center flex flex-col items-center">
+        <h1 id="error-title" class="text-3xl font-bold text-gray-900 mb-2">Where is it, again..?</h1>
+        <p id="error-desc" class="text-base text-gray-700 font-medium mb-6">The page you're looking for does not exist.</p>
+        
+        <a href="/" class="px-6 py-2 bg-[#1a1a1a] text-white font-bold rounded hover:bg-gray-800 transition shadow-md text-sm">
+            Main Menu
+        </a>
+    </div>
+
+    <!-- Dynamic Error Logic -->
+    <script>
+        // Dictionary of all your custom error designs
+        const errorData = {
+            "400": {
+                title: "What?",
+                desc: "Your browser sent a bad request."
+            },
+            "401": {
+                title: "You're not allowed to be here!",
+                desc: "You must login to access this page."
+            },
+            "403": {
+                title: "STOP!",
+                desc: "Disable your VPN to continue."
+            },
+            "404": {
+                title: "Where is it, again..?",
+                desc: "The page you're looking for does not exist."
+            },
+            "410": {
+                title: "Kaboom!",
+                desc: "This page is no longer available."
+            },
+            "500": {
+                title: "oh crap oh shoot",
+                desc: "server encountered an internal error. try again."
+            },
+            "501": {
+                title: "We're (maybe) working on it...",
+                desc: "This page is not implemented yet."
+            },
+            "502": {
+                title: "uhhhh....?",
+                desc: "bad gateway."
+            },
+            "503": {
+                title: "some update parts are made",
+                desc: "server is currently unavailable due to maintenance."
+            },
+            "504": {
+                title: "that fun long lasted",
+                desc: "server took too long to respond."
+            }
+        };
+
+        // Extract the error code from the URL (e.g., error.html?code=500)
+        const urlParams = new URLSearchParams(window.location.search);
+        let code = urlParams.get('code');
+
+        // Default to 404 if no code is provided or if the code doesn't exist in our dictionary
+        if (!code || !errorData[code]) {
+            code = "404"; 
+        }
+
+        // Apply the dynamic text to the HTML
+        document.getElementById('bg-error-code').innerText = code;
+        document.getElementById('error-title').innerText = errorData[code].title;
+        document.getElementById('error-desc').innerText = errorData[code].desc;
+        
+        // Dynamic page title
+        document.title = `Archade - ${code} Error`;
+    </script>
+</body>
+</html>
